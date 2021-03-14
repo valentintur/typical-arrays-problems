@@ -1,32 +1,41 @@
 exports.min = function min (array) {
-  if (array === undefined || array.length === 0) return 0;
-  let minimal = array[0];
-  for (let i = 1; i < array.length; i++) {
-     if (array[i] < minimal)  minimal = array[i];   
+  if (array === undefined || array.length < 1 ) {
+    return 0;
+  } else {
+    let min = array[0];
+    for (let i = 0; i < array.length; i++) {
+      if (array[i] < min) {
+        min = array[i]
+      }
+    }
+    return min;
   }
-  console.log(minimal);
-  return minimal;
 }
 
 exports.max = function max (array) {
-  if (array === undefined || array.length === 0) return 0;
-  let maximum = array[0];
-  
-  for (let i = 1; i < array.length; i++) {
-     if (array[i] > maximum )  maximum  = array[i];   
+  if (array === undefined || array.length < 1) {
+    return 0
+  } else {
+    let max = array[0];
+    for (let i = 0; i < array.length; i++) {
+      if (array[i] > max) {
+        max = array[i]
+      }
+    }
+    return max;
   }
-  console.log(maximum);
-  return maximum;
+
+ 
 }
 
 exports.avg = function avg (array) {
-  if (array === undefined || array.length === 0) return 0;
-  let average = 0;
-  let summ = 0;
-  for (let i = 0; i < array.length; i++) {
-     summ = summ + array[i];  
+  if (array === undefined || array.length < 1) {
+    return 0;
+  } else {
+   let avg = array.reduce((a,b) => {
+    return a + b;
+   }) / array.length;
+   return avg;
   }
-  console.log(summ);
-  average = summ / array.length ;
-  return average;
+
 }
